@@ -12,13 +12,7 @@ export const useIntersectionObserver = <T extends HTMLElement>(
     const observer = new IntersectionObserver((entries) => {
       const [entry] = entries;
 
-      if (entry.isIntersecting) {
-        setIsIntersect(true);
-      }
-
-      if (!entry.isIntersecting) {
-        setIsIntersect(false);
-      }
+      setIsIntersect(entry.isIntersecting);
     }, options);
 
     observer.observe(ref);
